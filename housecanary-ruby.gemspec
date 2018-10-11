@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Ilia Kriachkov']
   spec.email         = ['ilia.kriachkov@jetrockets.ru']
 
-  spec.summary       = 'Ruby wrapper for the HouseCanary Data & Analytics API.'
-  spec.description   = 'Ruby wrapper for the HouseCanary Data & Analytics API. https://www.housecanary.com/real-estate-data-api'
-  spec.homepage      = 'https://github.com/jetrockets/housecanary-ruby'
+  spec.summary       = %q(Ruby wrapper for the HouseCanary Data & Analytics API.)
+  spec.description   = %q(Ruby wrapper for the HouseCanary Data & Analytics API. https://www.housecanary.com/real-estate-data-api)
+  spec.homepage      = %q(https://github.com/jetrockets/housecanary-ruby)
   spec.license       = 'MIT'
 
   spec.bindir        = 'bin'
