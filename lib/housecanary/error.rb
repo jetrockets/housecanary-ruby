@@ -20,18 +20,20 @@ module Housecanary
       500 => Housecanary::Error::InternalServerError
     }.freeze
 
+    class << self
+      def from_response(body)
+        message, status = parse_error(body)
+        new(message, status)
+      end
+
+      def parse_error(body)
+        message = body.fetch(:message, nil)
+        status = body.fetch(:status, nil)
+        [message, status]
+      end
+    end
+
     private
-
-    def self.from_response(body)
-      message, status = parse_error(body)
-      new(message, status)
-    end
-
-    def self.parse_error(body)
-      message = body.fetch(:message, nil)
-      status = body.fetch(:status, nil)
-      return message, status
-    end
 
     def initialize(message = '', code = nil)
       super(message)
