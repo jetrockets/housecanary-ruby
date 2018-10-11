@@ -1,0 +1,10 @@
+Style/AccessModifierIndentation:
+  EnforcedStyle: indent
+  SupportedStyles:
+    - outdent
+    - indent
+
+Metrics/MethodLength:
+  Max: 25
+Metrics/LineLength:
+  Max: 100
