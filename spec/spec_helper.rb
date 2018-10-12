@@ -14,3 +14,8 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+Housecanary.configure do |config|
+  config.api_key = 'my_another_api_key'
+  config.api_secret = 'my_another_api_secret'
+end

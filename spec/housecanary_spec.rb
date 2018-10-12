@@ -11,12 +11,6 @@ describe ::Housecanary do
 
   context 'configuring' do
     describe '#configure' do
-      before :all do
-        Housecanary.configure do |config|
-          config.api_key = 'my_another_api_key'
-          config.api_secret = 'my_another_api_secret'
-        end
-      end
       let(:container) { Housecanary.container }
 
       it 'configures Dry::Container Registry' do

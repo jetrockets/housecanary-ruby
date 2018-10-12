@@ -5,8 +5,8 @@ require 'housecanary/response_parser'
 
 RSpec.describe Housecanary::ResponseParser do
   subject { Housecanary::ResponseParser }
-  let(:success_body)  { JSON.parse(File.new('spec/support/success_geocode_response_body.txt').read) }
-  let(:error_body)    { JSON.parse(File.new('spec/support/unauthorized_response_body.txt').read) }
+  let(:success_body)  { File.new('spec/support/success_geocode_response_body.txt').read }
+  let(:error_body)    { File.new('spec/support/unauthorized_response_body.txt').read }
   let(:uri)           { 'https://api.housecanary.com/' }
   let(:headers)       { {} }
 
@@ -15,7 +15,7 @@ RSpec.describe Housecanary::ResponseParser do
       :status  => 200,
       :version => "1.1",
       :headers => headers,
-      :body    => success_body,
+      :body    => JSON.parse(success_body),
       :uri     => uri
     )
   end
@@ -24,7 +24,7 @@ RSpec.describe Housecanary::ResponseParser do
       :status  => 401,
       :version => "1.1",
       :headers => headers,
-      :body    => error_body,
+      :body    => JSON.parse(error_body),
       :uri     => uri
     )
   end

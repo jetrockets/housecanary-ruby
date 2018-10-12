@@ -9,7 +9,8 @@ require 'housecanary/connection'
 require 'housecanary/response_parser'
 
 module Housecanary #:nodoc:
-  Import = ::Dry::AutoInject(@container)
+  @container = ::Dry::Container.new
+  AutoInject = ::Dry::AutoInject(@container)
 
   def self.configure
     yield(configuration)
@@ -17,7 +18,7 @@ module Housecanary #:nodoc:
   end
 
   def self.container
-    @container ||= ::Dry::Container.new
+    @container
   end
 
   class << self

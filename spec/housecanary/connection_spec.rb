@@ -5,10 +5,9 @@ require 'housecanary/connection'
 
 describe Housecanary::Connection do
   subject(:connection) do
-    # Housecanary.container['connection']
-    Housecanary::Connection.new(api_key: 'my_api_key', api_secret: 'my_api_secret')
+    Housecanary.container['connection']
   end
-  let!(:success_body) { File.new('spec/support/success_geocode_response_body.txt').read }
+  let(:success_body) { File.new('spec/support/success_geocode_response_body.txt').read }
   let(:url) { Housecanary::Connection::BASE_URL + 'property/geocode' }
 
   describe '#get' do

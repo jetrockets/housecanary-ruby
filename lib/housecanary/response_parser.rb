@@ -7,7 +7,7 @@ module Housecanary
   class ResponseParser #:nodoc:
     class << self
       def perform(response)
-        response_body = response ? utils.deep_symbolize_keys(response.parse(:json)) : ''
+        response_body = response.body.empty? ? '' : utils.deep_symbolize_keys(response.parse(:json))
         api_error_filter(response.code, response_body)
       end
 
