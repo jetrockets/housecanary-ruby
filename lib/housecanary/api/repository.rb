@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'housecanary/api/helpers'
+require 'housecanary/api/sales_history'
 
 module Housecanary
   module API
@@ -11,7 +12,9 @@ module Housecanary
       SALES_HISTORY_PATH = 'property/sales_history'
 
       def sales_history(params = {})
-        perform_response(:get, SALES_HISTORY_PATH, params)
+        if response = perform_response(:get, SALES_HISTORY_PATH, params)
+          SalesHistory.new(response&.first&.fetch("property/sales_history".to_sym, nil))
+        end
       end
 
       private
