@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require 'webmock/rspec'
-require 'factory_bot'
-require 'faker'
+# require 'factory_bot'
+# require 'faker'
 require 'simplecov'
 SimpleCov.start
 
