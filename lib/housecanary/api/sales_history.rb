@@ -9,8 +9,8 @@ module Housecanary
   module API
     class SalesHistory
       extend Dry::Initializer
-      option :api_code_description
-      option :api_code
+      option :api_code_description, optional: true
+      option :api_code, optional: true
       option :result, type: Dry::Types['coercible.array'].of(Sale)
     end
   end

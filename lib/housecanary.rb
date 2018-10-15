@@ -21,6 +21,10 @@ module Housecanary #:nodoc:
     @container
   end
 
+  def self.properties
+    Housecanary::API::Repository.new
+  end
+
   class << self
     private
 
