@@ -3,11 +3,11 @@
 [![Build Status](https://travis-ci.org/jetrockets/housecanary-ruby.svg?branch=master)](https://travis-ci.org/jetrockets/housecanary-ruby)
 
 Ruby wrapper for the HouseCanary Data & Analytics API.
-
-Add this line to your application's Gemfile:
 [https://www.housecanary.com/real-estate-data-api](https://www.housecanary.com/real-estate-data-api)
 
+
 ## Installation
+Add this line to your application's Gemfile:
 
 ```ruby
 gem 'housecanary-ruby'
@@ -32,7 +32,7 @@ end
 ```
 ## Usage
 ### Sales History
-Search sales and ownership transfer history. [Original documentation] (https://api-docs.housecanary.com/#property-sales_history).
+Search sales and ownership transfer history. [Original documentation](https://api-docs.housecanary.com/#property-sales_history).
 
 Example:
 ```ruby
@@ -65,6 +65,7 @@ If sales information is found, the `sales` will contain `Housecanary::API::Sales
 ## Exception Handling
 
 If Housecanary will return anything different from 200 OK status code, `Housecanary::Error` will be raised. It contains `#message` and `#code` returned from API.
+
 For example with invalid credentials you will receive:
 ``` ruby
 sales = Housecanary.properties.sales_history(address: '000 Some Street', zipcode: '01234')
