@@ -9,6 +9,16 @@ describe ::Housecanary do
     end
   end
 
+  context 'api data repository' do
+    describe '#properties' do
+      subject { ::Housecanary }
+      it { is_expected.to respond_to(:properties) }
+      it 'returns an instance of `Housecanary::API::Repository`' do
+        expect(subject.properties).to be_an_instance_of(Housecanary::API::Repository)
+      end
+    end
+  end
+
   context 'configuring' do
     describe '#configure' do
       let(:container) { Housecanary.container }
