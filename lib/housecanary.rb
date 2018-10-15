@@ -40,3 +40,5 @@ module Housecanary #:nodoc:
     end
   end
 end
+
+require 'housecanary/api/repository'
