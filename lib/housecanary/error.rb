@@ -4,6 +4,7 @@ module Housecanary
   class Error < StandardError #:nodoc:
     attr_reader :code
 
+    NoContent = Class.new(self)
     BadRequest = Class.new(self)
     Unauthorized = Class.new(self)
     Forbidden = Class.new(self)
@@ -12,6 +13,7 @@ module Housecanary
     TooManyRequests = Class.new(self)
 
     ERRORS_MAP = {
+      204 => Housecanary::Error::NoContent,
       400 => Housecanary::Error::BadRequest,
       401 => Housecanary::Error::Unauthorized,
       403 => Housecanary::Error::Forbidden,
@@ -27,8 +29,8 @@ module Housecanary
       end
 
       def parse_error(body)
-        message = body.fetch(:message, nil)
-        status = body.fetch(:status, nil)
+        message = body.fetch(:message, nil) || body.fetch(:api_code_description, nil)
+        status = body.fetch(:status, nil) || body.fetch(:api_code, nil)
         [message, status]
       end
     end
