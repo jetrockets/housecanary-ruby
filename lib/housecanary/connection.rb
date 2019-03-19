@@ -16,7 +16,10 @@ module Housecanary
     end
 
     def get(path, params = {})
-      HTTP.basic_auth(user: api_key, pass: api_secret).get(url(path), params)
+      ctx = OpenSSL::SSL::SSLContext.new
+      ctx.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+      HTTP.basic_auth(user: api_key, pass: api_secret).get(url(path), { ssl_context: ctx }.merge(params))
     end
 
     private
