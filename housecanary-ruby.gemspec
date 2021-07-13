@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'dry-container'
   spec.add_dependency 'dry-initializer'
   spec.add_dependency 'dry-types'
-  spec.add_dependency 'http', '~> 3.0'
+  spec.add_dependency 'http', '~> 5.0.1'
 
   spec.add_development_dependency 'bundler', '~> 1.13'
   # spec.add_development_dependency 'factory_bot'
