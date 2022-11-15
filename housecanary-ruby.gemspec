@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   # spec.add_development_dependency 'factory_bot'
   # spec.add_development_dependency 'faker', '~> 1.9'
   spec.add_development_dependency 'pry', '~> 0.11.3'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.2'
   spec.add_development_dependency 'simplecov', '>= 0.6.2'
   spec.add_development_dependency 'webmock', '~> 3.4'
