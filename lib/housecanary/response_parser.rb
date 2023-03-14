@@ -4,7 +4,7 @@ require 'housecanary/error'
 require 'housecanary/utils'
 
 module Housecanary
-  class ResponseParser #:nodoc:
+  class ResponseParser # :nodoc:
     class << self
       def perform(response)
         response_body = parse_body(response)

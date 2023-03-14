@@ -4,7 +4,7 @@ require 'dry-initializer'
 require 'http'
 
 module Housecanary
-  class Connection #:nodoc:
+  class Connection # :nodoc:
     extend Dry::Initializer
     BASE_URL = 'https://api.housecanary.com/v2/'
 
@@ -19,7 +19,7 @@ module Housecanary
       ctx = OpenSSL::SSL::SSLContext.new
       ctx.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-      HTTP.basic_auth(user: api_key, pass: api_secret).get(url(path), { ssl_context: ctx }.merge(params))
+      HTTP.basic_auth(user: api_key, pass: api_secret).get(url(path), {ssl_context: ctx}.merge(params))
     end
 
     private

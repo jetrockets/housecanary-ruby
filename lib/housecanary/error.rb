@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Housecanary
-  class Error < StandardError #:nodoc:
+  class Error < StandardError # :nodoc:
     attr_reader :code
 
     NoContent = Class.new(self)

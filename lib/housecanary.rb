@@ -8,7 +8,7 @@ require 'housecanary/version'
 require 'housecanary/connection'
 require 'housecanary/response_parser'
 
-module Housecanary #:nodoc:
+module Housecanary # :nodoc:
   @container = ::Dry::Container.new
   AutoInject = ::Dry::AutoInject(@container)
 
@@ -33,7 +33,7 @@ module Housecanary #:nodoc:
     end
 
     def register!
-      connection = ::Housecanary::Connection.new(configuration.to_h)
+      connection = ::Housecanary::Connection.new(**configuration.to_h)
       parser_class = ::Housecanary::ResponseParser
       container.register :connection, -> { connection }
       container.register :response_parser, -> { parser_class }

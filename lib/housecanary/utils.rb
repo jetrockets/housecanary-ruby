@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
 module Housecanary
-  module Utils #:nodoc:
+  module Utils # :nodoc:
     def deep_symbolize_keys(hash)
-      deep_transform_keys(hash) { |key| key.to_sym rescue key }
+      deep_transform_keys(hash) { |key|
+        begin
+          key.to_sym
+        rescue
+          key
+        end
+      }
     end
     module_function :deep_symbolize_keys
 

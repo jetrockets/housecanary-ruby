@@ -11,7 +11,7 @@ describe Housecanary::Error do
 
   describe '#code' do
     it 'returns the error code' do
-      error = Housecanary::Error.new('Some Exception Happened', 123)
+      error = described_class.new('Some Exception Happened', 123)
       expect(error.code).to eq(123)
     end
   end
@@ -19,7 +19,7 @@ describe Housecanary::Error do
   describe '#message' do
     it 'returns the error message' do
       msg = 'Some Awful happened'
-      error = Housecanary::Error.new(msg)
+      error = described_class.new(msg)
       expect(error.message).to eq(msg)
     end
   end
@@ -30,7 +30,7 @@ describe Housecanary::Error do
         path = 'property/census'
 
         stub_request(:get, Housecanary::Connection::BASE_URL + 'property/census')
-          .to_return(status: status, body: '{}', headers: { content_type: 'application/json; charset=utf-8' })
+          .to_return(status: status, body: '{}', headers: {content_type: 'application/json; charset=utf-8'})
 
         expect { response_parser.perform(connection.get(path)) }.to raise_error(exception)
       end

@@ -1,10 +1,6 @@
-Style/AccessModifierIndentation:
-  EnforcedStyle: indent
-  SupportedStyles:
-    - outdent
-    - indent
+inherit_gem:
+  jetrockets-standard: config/gems.yml
 
-Metrics/MethodLength:
-  Max: 25
-Metrics/LineLength:
-  Max: 120
+AllCops:
+  TargetRubyVersion: 2.7
+  NewCops: enable

@@ -24,7 +24,7 @@ module Housecanary
       option :record_page, optional: true
 
       def self.call(*args)
-        self.new(*args)
+        new(*args)
       end
     end
   end
