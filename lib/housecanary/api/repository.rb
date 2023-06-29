@@ -13,7 +13,7 @@ module Housecanary
 
       def sales_history(params = {})
         if (response = perform_response(:get, SALES_HISTORY_PATH, params))
-          SalesHistory.new(response&.first&.fetch(:'property/sales_history', nil))
+          SalesHistory.new(**response&.first&.fetch(:'property/sales_history', nil))
         end
       end
 
