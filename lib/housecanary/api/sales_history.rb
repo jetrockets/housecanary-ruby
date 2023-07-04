@@ -11,7 +11,7 @@ module Housecanary
       extend Dry::Initializer
       option :api_code_description, optional: true
       option :api_code, optional: true
-      option :result, type: Dry::Types['coercible.array'].of(Dry.Types.Constructor(Sale))
+      option :result, type: Dry::Types['coercible.array'].of(Dry.Types.Constructor(Sale) { |args| Sale.new(**args) })
     end
   end
 end
